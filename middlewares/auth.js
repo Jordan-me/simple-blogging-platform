@@ -1,3 +1,5 @@
+// Middleware are the functions that you would want your route to go through before using the rest of the defined controllers
+// usually for authentication and uploading
 const jwt = require("jsonwebtoken");
 
 function authMiddleware(req, res, next) {
