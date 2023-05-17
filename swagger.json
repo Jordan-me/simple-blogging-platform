@@ -54,6 +54,14 @@
             }
           }
         ]
+      },
+      "delete": {
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "User deleted successfully"
+          }
+        }
       }
     },
     "/users/{email}": {

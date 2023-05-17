@@ -16,5 +16,5 @@ router.get("/users/:email", usersController.getUserByEmail);
 // update user by its email - can use also with put method, with patch we can update only some fields.
 router.patch("/users/:email", usersController.updateUserByEmail);
 // delete all users
-router.patch("/users", usersController.deleteAllUsers);
+router.delete("/users", usersController.deleteAllUsers);
 module.exports = router;
