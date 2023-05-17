@@ -15,3 +15,6 @@ This is blog-platform project.
 
 1. run npm start command on terminal
 2. open http://localhost:5000/api-docs for documentation and examples
+
+![image](https://github.com/Jordan-me/simple-blogging-platform/assets/68491359/9c8257eb-d554-4a19-bfa3-bfa16812a5a2)
+
