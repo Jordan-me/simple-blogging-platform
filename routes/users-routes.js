@@ -11,4 +11,10 @@ router.get("/users", usersController.getAllUsers);
 // with middleware: router.get("/",mid-function, usersController.getAllUsers);
 // create new user
 router.post("/users", usersController.createNewUser);
+// get user by its email
+router.get("/users/:email", usersController.getUserByEmail);
+// update user by its email - can use also with put method, with patch we can update only some fields.
+router.patch("/users/:email", usersController.updateUserByEmail);
+// delete all users
+router.patch("/users", usersController.deleteAllUsers);
 module.exports = router;

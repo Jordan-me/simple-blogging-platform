@@ -29,47 +29,86 @@
           }
         }
       },
+
       "post": {
         "tags": ["Users"],
         "responses": {
-          "200": {
+          "201": {
             "description": "New user is created",
             "schema": {
               "$ref": "#/definitions/Users"
             }
+          },
+          "409": {
+            "description": "User already exists"
           }
         },
-        "requestBody": {
-          "description": "Create new user in system",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/User"
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/definitions/User"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/definitions/User"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Create new user in the system",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
             }
+          }
+        ]
+      }
+    },
+    "/users/{email}": {
+      "get": {
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "Email of the user to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "Email of the user to update",
+            "required": true,
+            "type": "string"
           },
-          "produces": ["application/json"],
-          "consumes": ["application/json"]
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Update user information",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User updated successfully",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
         }
       }
     }
   },
+
   "definitions": {
     "User": {
       "type": "object",
@@ -92,7 +131,7 @@
       }
     },
     "Users": {
-      "type": "array",
+      "type": "Array",
       "$ref": "#/definitions/User"
     }
   }

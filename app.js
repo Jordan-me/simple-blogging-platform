@@ -15,7 +15,7 @@ app.use(favicon(path.join(__dirname, "favicon.ico")));
 //  http://localhost:5000/
 app.use("/", userRouter); // with express must define the route '/'
 app.use("/users", userRouter);
-app.use("/users", userRouter);
+app.use("/users/:email", userRouter);
 
 // connections & PORT
 // Connect to MongoDB Atlas - process.env.MONGODB_URI if failed will connect to mongodb://localhost/my-blog-app
